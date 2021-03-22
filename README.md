@@ -23,7 +23,9 @@ https://www.twilio.com/blog/deploy-flask-python-app-aws
 ## Install softwares
 
 $ sudo apt-get update
+
 $ sudo apt-get install nginx
+
 $ sudo apt-get install python3-pip python3-dev
 
 
