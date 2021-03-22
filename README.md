@@ -85,8 +85,11 @@ WantedBy=multi-user.target
 We can now start the Gunicorn service we created and enable it so that it starts at boot:
 
 $ sudo systemctl start lightcone
+
 $ sudo systemctl enable lightcone
+
 $ sudo systemctl status lightcone
+
 
 You now have a socket file, lightcone.sock, in the project directory.
 
@@ -147,14 +150,22 @@ http://54.198.2.86/
 
 If you encounter any errors, trying checking the following:
 
-sudo less /var/log/nginx/error.log
-: checks the Nginx error logs.
-sudo less /var/log/nginx/access.log
-: checks the Nginx access logs.
-sudo journalctl -u nginx
-: checks the Nginx process logs.
-sudo journalctl -u lightcone
-: checks your Flask app’s Gunicorn logs.
+checks the Nginx error logs
+
+$ sudo less /var/log/nginx/error.log
+
+checks the Nginx access logs
+
+$ sudo less /var/log/nginx/access.log
+
+checks the Nginx process logs
+
+$ sudo journalctl -u nginx
+
+checks your Flask app’s Gunicorn logs.
+
+$ sudo journalctl -u lightcone
+
 
 
 ## Install SSL Certificate NGINX Server Steps
