@@ -17,6 +17,26 @@ $ python3 main.py
 
 ## Create a AWS EC2 and SSH into it
 
+### Create a AWS user account  
+
+In order to deploy fast and easily, create an AWS account. Upon logging back into your account, you have the option to login as a Root user or an IAM user.
+
+I would recommend logging in as a Root user account to perform tasks requiring unrestricted access or creating an IAM user account that holds all of the permissions that a Root user would have. IAM users have the ability to work on the AWS dashboard with secure control access that can be modified.  
+
+For the purpose of this article, I am logging in as a Root user to accomplish the necessary tasks.
+
+### Navigate the EC2 Dashboard
+
+Click on the Services tab at the top of the webpage. Click on “EC2” under the Compute tab or type the name into the search bar to access the EC2 dashboard.
+
+![](images/1.png)
+
+EC2 is a virtual server in the cloud where the Flask web app will live.
+
+
+
+
+
 https://www.twilio.com/blog/deploy-flask-python-app-aws 
 
 $ ssh -i lightcone.pem ubuntu@54.198.2.86
@@ -177,5 +197,5 @@ https://phoenixnap.com/kb/install-ssl-certificate-nginx
 
 ## Workflow 
 
-Modify project, Test it locally, Transfer project to remote, Restart Gunicorn service.
+Modify project, Test it locally, Push to Github, Transfer project to remote, Restart Gunicorn service.
 
