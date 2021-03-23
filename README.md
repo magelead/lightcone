@@ -19,6 +19,7 @@ $ python3 main.py
 
 https://www.twilio.com/blog/deploy-flask-python-app-aws 
 
+$ ssh -i lightcone.pem ubuntu@54.198.2.86
 
 ## Install softwares
 
@@ -31,7 +32,7 @@ $ sudo apt-get install python3-pip python3-dev
 
 ## Transfer your project files to remote host
 
-Run following command from a local macine.
+Run following command from a local shell.
 
 Push:
 
@@ -117,7 +118,7 @@ $ sudo vim /etc/nginx/sites-available/lightcone
 ```
 server {
     listen 80;
-    server_name 54.198.2.86;
+    server_name lightcone.ai 54.198.2.86;
 
     location / {
         include proxy_params;

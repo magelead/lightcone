@@ -1,4 +1,8 @@
-from flask import Flask
+import utils 
+
+
+from flask import Flask, render_template
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,10 +12,19 @@ def hello():
 
 @app.route('/spoken')
 def spoken():
-    return """<h1 style='color:blue'>Spoken</h1></br><a href="https://play.google.com/store/apps/details?id=com.depplenny.spoken">Android</a>"""
+    output = utils.database_read('/audio/')
+    return render_template('spoken.html', output=output)
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
    
