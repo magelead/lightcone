@@ -15,9 +15,9 @@
 ## Develope and test your flask app locally
 $ python3 main.py
 
-## Create a AWS EC2 and SSH into it
+## Create an AWS EC2
 
-### Create a AWS user account  
+**Create an AWS user account**
 
 In order to deploy fast and easily, create an AWS account. Upon logging back into your account, you have the option to login as a Root user or an IAM user.
 
@@ -25,7 +25,7 @@ I would recommend logging in as a Root user account to perform tasks requiring u
 
 For the purpose of this article, I am logging in as a Root user to accomplish the necessary tasks.
 
-### Navigate the EC2 Dashboard
+**Navigate the EC2 Dashboard**
 
 Click on the Services tab at the top of the webpage. Click on “EC2” under the Compute tab or type the name into the search bar to access the EC2 dashboard.
 
@@ -34,10 +34,88 @@ Click on the Services tab at the top of the webpage. Click on “EC2” under th
 EC2 is a virtual server in the cloud where the Flask web app will live.
 
 
+**Launch an Amazon EC2 instance**
+
+
+Look for the Launch Instance section of the web page. It should be an orange button labeled Launch Instance as shown below. You can see that the section says “Note: Your instances will launch in the US East (Ohio) Region”. This may vary for your EC2 dashboard, as you want to make sure that your instances are within the US states if you are a developer in the US.
+
+![](images/2.png)
+
+**Choose an AMI**
+
+Select the Free Tier Only option on the left hand side under Quick Start. There is a list of Amazon Machine Images (AMI) that you can choose from, but we will select the Ubuntu Server with the Free tier eligible option.
+
+![](images/3.png)
+
+You can choose the most updated version of Ubuntu.
+
+**Choose the Instance Type**
+
+Select the Instance with the Free tier eligible option. After checking the instance you want to use, click on Next: Configure Instance Details.
+
+![](images/4.png)
+
+**Configure Instance Details**
+
+View the default settings and move on to Next: Add Storage.
+
+![](images/5.png)
+
+**Add storage**
+
+Select the amount of storage necessary to run your application. Free tier eligible customers can get up to 30 GB. The storage used will depend on your application. For example, if your application requires image file storage, heavy graphic rendering, or storing user data it will use more storage. In this case, you will have to be careful and make sure your app does not go over the free GB allocation. If you go over your limit for the month, you will be charged.
+
+After you select the size you want, click Next: Add Tags.
+
+
+![](images/6.png)
+
+**Add Tags**
+
+Tags are used to categorize your AWS resources for different use cases to easily keep track of your resources. This would apply if you are working on large scale projects and need to organize the AWS billing costs in a preferred structure. Thus, it might not be necessary to add tags to your machine especially if you only plan on using AWS one time for this specific application. Go ahead and click Next: Configure Security Group.
 
 
 
-https://www.twilio.com/blog/deploy-flask-python-app-aws 
+![](images/7.png)
+
+**Security Group**
+
+Configuring the security is the last step before launching the AWS EC2 instance. If this is your first time creating a security group, select SSH in the dropdown under Type. Everything else in this section should be set to default to TCP at Port 22. Since we want people around the world to access the site, set the Source to these protocols to “0.0.0.0/0”.
+
+![](images/8.png)
+
+Here’s the list of security types and protocols you should use. You can add additional rules to the following list as well:
+
+Set Type HTTP, Protocol TCP, Port range 80, and Source to “0.0.0.0/0”.
+
+Set Type Custom TCP, Protocol TCP, Port range 8080, and Source to “0.0.0.0/0”.
+
+Set Type SSH, Protocol TCP, Port range 22, and Source to “0.0.0.0/0”.
+
+Set Type HTTPS, Protocol TCP, Port range 443, and Source to “0.0.0.0/0”.
+
+
+**Launch and create a key pair**
+
+Click "Review and Launch" to confirm your security group for your project. After you review your settings and click "Launch" you will be prompted to select an existing key pair or create a new key pair.
+
+Click on the drop down menu and select Create a new key pair. This is essential to access your AWS instance securely through your machine. Give your key pair a memorable name. For the purposes of this article, the key pair name is "lightcone".
+
+Click on Download Key Pair after creating your key pair. This will download the private key file. Drag the .pem file to a secure location. It is absolutely crucial that you keep this .pem file safely, as this is the ONLY way to access your web application.
+
+![](images/9.png)
+
+**Review and launch the instance**
+
+Give your AWS dashboard some time to launch the instance. Your IPv4 Public IP is the address you need to access your web application. In this article, the public IP address for the instance is “54.198.2.86”.
+
+The instance has been launched once the Instance State tab says running along with a green circle.
+
+![](images/10.png)
+
+Reference: https://www.twilio.com/blog/deploy-flask-python-app-aws 
+
+## SSH into the virtual machine
 
 $ ssh -i lightcone.pem ubuntu@54.198.2.86
 
