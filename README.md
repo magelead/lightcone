@@ -4,7 +4,8 @@
 ## Contents
 
 - Develope and test your flask app locally
-- Create a AWS EC2 and SSH into it
+- Create a AWS EC2 
+- SSH into the virtual machine (EC2)
 - Install softwares
 - Transfer your project files to remote host (EC2)
 - Install python packages
