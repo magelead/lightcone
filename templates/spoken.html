@@ -12,7 +12,10 @@
                     <tr>
                         <th>Time</th>
                         <th>Title</th>
-                        <th>URL</th>
+                        <th>URL
+                            <a href="{{ url_for('spoken', page=curr_page-1) }}">LP</a>
+                            <a href="{{ url_for('spoken', page=curr_page+1) }}">NP</a>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
