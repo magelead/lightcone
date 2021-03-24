@@ -14,6 +14,8 @@ $ git push origin master
 ```
 
 ```
+$ git clone https://github.com/depplenny/lightcone
+$ cd lightcoen/
 $ git checkout gh-pages // go to the gh-pages branch
 $ git rebase main // bring gh-pages up to date with master
 $ git push origin gh-pages // commit the changes
