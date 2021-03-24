@@ -4,8 +4,8 @@ You can use the [editor on GitHub](https://github.com/depplenny/lightcone/edit/g
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+Keep gh-pages up to date with a master branch:
 
-// Reference: http://lea.verou.me/2011/10/easily-keep-gh-pages-in-sync-with-master/
 ```
 $ git add .
 $ git status // to see what changes are going to be commited
