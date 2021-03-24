@@ -4,23 +4,7 @@ You can use the [editor on GitHub](https://github.com/depplenny/lightcone/edit/g
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-Keep gh-pages up to date with a master branch:
 
-```
-$ git add .
-$ git status // to see what changes are going to be commited
-$ git commit -m 'Some descriptive commit message'
-$ git push origin master
-```
-
-```
-$ git clone https://github.com/depplenny/lightcone
-$ cd lightcoen/
-$ git checkout gh-pages // go to the gh-pages branch
-$ git rebase main // bring gh-pages up to date with master
-$ git push origin gh-pages // commit the changes
-$ git checkout master // return to the master branch
-```
 
 ======================================================================
 
